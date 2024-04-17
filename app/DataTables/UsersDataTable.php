@@ -64,13 +64,13 @@ class UsersDataTable extends DataTable
     public function query(User $model): QueryBuilder
     {
 
-        if (Auth::user()->type == 'Admin') {
+        // if (Auth::user()->type == 'Admin') {
 
-            return $model->newQuery()->where('type', '!=', 'Admin')->orderBy('id', 'ASC');
-        }
-        else{
+        //     return $model->newQuery()->where('type', '!=', 'Admin')->orderBy('id', 'ASC');
+        // }
+        // else{
             return $model->newQuery()->where('created_by', Auth::user()->id)->whereNot('type','Admin')->orderBy('id', 'ASC');
-        }
+        //}
 
 
     }
