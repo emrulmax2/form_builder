@@ -69,10 +69,10 @@ class UsersDataTable extends DataTable
         //     return $model->newQuery()->where('type', '!=', 'Admin')->orderBy('id', 'ASC');
         // }
         // else{
-            return $model->newQuery()->where('created_by', Auth::user()->id)->whereNot('type','Admin')->orderBy('id', 'ASC');
+        //    return $model->newQuery()->where('created_by', Auth::user()->id)->whereNot('type','Admin')->orderBy('id', 'ASC');
         //}
 
-
+        return $model->newQuery()->orderBy('id', 'ASC');
     }
 
     public function html(): HtmlBuilder
