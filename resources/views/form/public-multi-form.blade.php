@@ -66,7 +66,7 @@
                                                         $col = 'col-12 step-' . $keys;
                                                     }
                                                 @endphp
-                                                @if ($row->type == 'checkbox-group')
+                                                @if (isset($row->type) && $row->type == 'checkbox-group')
                                                     <div class="form-group {{ $col }}"
                                                         data-name="{{ $row->name }}">
                                                         <label for="{{ $row->name }}"
