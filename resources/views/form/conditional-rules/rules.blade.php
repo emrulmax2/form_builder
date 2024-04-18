@@ -71,7 +71,7 @@
                                                             <option selected disabled>{{ __('Select Field') }}</option>
                                                             @foreach ($jsonData as $jsons)
                                                                 @foreach ($jsons as $json)
-                                                                    @if (
+                                                                    @if (isset($json->type) &&
                                                                         !in_array($json->type, [
                                                                             'SignaturePad',
                                                                             'header',
