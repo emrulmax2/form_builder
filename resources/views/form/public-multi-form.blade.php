@@ -124,7 +124,6 @@
                                                             <div class=" error-message required-checkbox"></div>
                                                         @endif
                                                     </div>
-                                                @elseif($row->type == 'file')
                                                 @elseif(isset($row->type) && $row->type == 'file')
                                                     @php
                                                         $attr = [];
