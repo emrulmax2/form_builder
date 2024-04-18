@@ -125,6 +125,7 @@
                                                         @endif
                                                     </div>
                                                 @elseif($row->type == 'file')
+                                                @elseif(isset($row->type) && $row->type == 'file')
                                                     @php
                                                         $attr = [];
                                                         $attr['class'] = 'form-control upload';
@@ -172,7 +173,7 @@
                                                             <div class="error-message required-file"></div>
                                                         @endif
                                                     </div>
-                                                @elseif($row->type == 'header')
+                                                @elseif(isset($row->type) && $row->type == 'header')
                                                     @php
                                                         $class = '';
                                                         if (isset($row->className)) {
@@ -184,7 +185,7 @@
                                                             {{ html_entity_decode($row->label) }}
                                                             </{{ $row->subtype }}>
                                                     </div>
-                                                @elseif($row->type == 'paragraph')
+                                                @elseif(isset($row->type) && $row->type == 'paragraph')
                                                     @php
                                                         $class = '';
                                                         if (isset($row->className)) {
@@ -196,7 +197,7 @@
                                                             {{ html_entity_decode($row->label) }}
                                                             </{{ $row->subtype }}>
                                                     </div>
-                                                @elseif($row->type == 'radio-group')
+                                                @elseif(isset($row->type) && $row->type == 'radio-group')
                                                     <div class="form-group {{ $col }}"
                                                         data-name={{ $row->name }}>
                                                         <label for="{{ $row->name }}"
@@ -258,7 +259,7 @@
                                                             <div class="error-message required-radio "></div>
                                                         @endif
                                                     </div>
-                                                @elseif($row->type == 'select')
+                                                @elseif(isset($row->type) && $row->type == 'select')
                                                     <div class="form-group {{ $col }}"
                                                         data-name={{ $row->name }}>
                                                         @php
@@ -333,7 +334,7 @@
                                                             <span class="text-warning registration-message"></span>
                                                         @endif
                                                     </div>
-                                                @elseif($row->type == 'autocomplete')
+                                                @elseif(isset($row->type) && $row->type == 'autocomplete')
                                                     <div class="form-group {{ $col }}"
                                                         data-name={{ $row->name }}>
                                                         {{-- @include('form.js.autocomplete') --}}
@@ -392,7 +393,7 @@
                                                             </datalist>
                                                         </div>
                                                     </div>
-                                                @elseif($row->type == 'date')
+                                                @elseif(isset($row->type) && $row->type == 'date')
                                                     <div class="form-group {{ $col }}"
                                                         data-name={{ $row->name }}>
                                                         @php
@@ -418,12 +419,12 @@
                                                             <div class="error-message required-date"></div>
                                                         @endif
                                                     </div>
-                                                @elseif($row->type == 'hidden')
+                                                @elseif(isset($row->type) && $row->type == 'hidden')
                                                     <div class="form-group {{ $col }}"
                                                         data-name={{ $row->name }}>
                                                         {{ Form::hidden($row->name, isset($row->value) ? $row->value : null) }}
                                                     </div>
-                                                @elseif($row->type == 'number')
+                                                @elseif(isset($row->type) && $row->type == 'number')
                                                     <div class="form-group {{ $col }}"
                                                         data-name={{ $row->name }}>
                                                         @php
@@ -458,7 +459,7 @@
                                                             <div class="error-message required-number"></div>
                                                         @endif
                                                     </div>
-                                                @elseif($row->type == 'textarea')
+                                                @elseif(isset($row->type) && $row->type == 'textarea')
                                                     <div class="form-group {{ $col }} "
                                                         data-name={{ $row->name }}>
                                                         @php
@@ -495,7 +496,7 @@
                                                             <div class="error-message required-textarea"></div>
                                                         @endif
                                                     </div>
-                                                @elseif($row->type == 'button')
+                                                @elseif(isset($row->type) && $row->type == 'button')
                                                     <div class="form-group {{ $col }}"
                                                         data-name={{ $row->name }}>
                                                         @if (isset($row->value) && !empty($row->value))
@@ -505,7 +506,7 @@
                                                             {{ Form::button(__($row->label), ['name' => $row->name, 'type' => $row->subtype, 'class' => $row->className, 'id' => $row->name]) }}
                                                         @endif
                                                     </div>
-                                                @elseif($row->type == 'text')
+                                                @elseif(isset($row->type) && $row->type == 'text')
                                                     @php
                                                         $class = '';
                                                         if ($row->subtype == 'text' || $row->subtype == 'email') {
@@ -551,7 +552,7 @@
                                                             <div class="error-message required-text"></div>
                                                         @endif
                                                     </div>
-                                                @elseif($row->type == 'starRating')
+                                                @elseif(isset($row->type) && $row->type == 'starRating')
                                                     <div class="form-group {{ $col }}"
                                                         data-name={{ $row->name }}>
                                                         @php
@@ -579,7 +580,7 @@
                                                             value="{{ $value }}" class="calculate"
                                                             data-star="{{ $num_of_star }}">
                                                     </div>
-                                                @elseif($row->type == 'SignaturePad')
+                                                @elseif(isset($row->type) && $row->type == 'SignaturePad')
                                                     @php
                                                         $attr = ['class' => $row->name];
                                                         if ($row->required) {
@@ -634,9 +635,9 @@
                                                             </div>
                                                         @endif
                                                     </div>
-                                                @elseif($row->type == 'break')
+                                                @elseif(isset($row->type) && $row->type == 'break')
                                                     <hr class="hr_border">
-                                                @elseif($row->type == 'location')
+                                                @elseif(isset($row->type) && $row->type == 'location')
                                                     <div class="form-group {{ $col }}"
                                                         data-name={{ $row->name }}>
                                                         @include('form.js.map')
@@ -644,7 +645,7 @@
                                                             name="location" placeholder="Search Box" />
                                                         <div id="map"></div>
                                                     </div>
-                                                @elseif($row->type == 'video')
+                                                @elseif(isset($row->type) && $row->type == 'video')
                                                     @php
                                                         $attr = ['class' => $row->name];
                                                         if ($row->required) {
@@ -741,7 +742,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                @elseif($row->type == 'selfie')
+                                                @elseif(isset($row->type) && $row->type == 'selfie')
                                                     @php
                                                         $attr = ['class' => $row->name];
                                                         if ($row->required) {
